@@ -13,7 +13,6 @@ services:
         volumes:
             - database_keep_app_data:/data/postgres
         #/var/lib/postgresql/data/
-        network_mode: host
 
     keep_api:
         build: ./api
@@ -22,7 +21,6 @@ services:
             - 3333:3333
         volumes:
             - ./api:/usr/app
-        network_mode: host
 
 volumes:
     database_keep_app_data:

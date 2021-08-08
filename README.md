@@ -7,10 +7,16 @@
 </h3>
 
 <p align="center">
-<img alt="keep" src="https://img.shields.io/badge/PRs-welcome-7159c1"></img>
-<a href="https://github.com/3rd-floor/keep-app-react-nestjs/blob/main/LICENSE">
+  <img alt="keep" src="https://img.shields.io/badge/PRs-welcome-7159c1"></img>
+  <img alt="npm" src="https://img.shields.io/badge/npm-v6.14.14-%23FF0000" />
+  <img alt="node" src="https://img.shields.io/badge/node-v14.17.4-brightgreen" />
+  <img alt="nest" src="https://img.shields.io/badge/nestjs-v14.17.4-%E0234E00" />
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/3rd-floor/keep-app-react-nestjs" />
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/3rd-floor/keep-app-react-nestjs" />
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/3rd-floor/keep-app-react-nestjs" />
+  <a href="https://github.com/3rd-floor/keep-app-react-nestjs/blob/main/LICENSE">
     <img alt="Keep" src="https://img.shields.io/badge/license-MIT-7159c1"></img>
-</a>
+  </a>
 </p>
 
 <p align="center">

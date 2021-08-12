@@ -6,6 +6,8 @@ import {
   Timestamp,
 } from 'typeorm';
 
+import { v4 as uuidV4 } from 'uuid';
+
 @Entity('notes')
 export class Note extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -20,4 +22,11 @@ export class Note extends BaseEntity {
   created_at: Timestamp;
   @Column('timestamp')
   updated_at: Timestamp;
+
+  constructor() {
+    super();
+    if (!this.uuid) {
+      this.uuid = uuidV4();
+    }
+  }
 }

@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { CreateNoteDTO } from './dto/create-note.dto';
 import { UpdateNoteDTO } from './dto/update-note.dto';
 import { Note } from './note.entity';
+import { NIL as NIL_UUID } from 'uuid';
 
 @Injectable()
 export class NoteService {
@@ -15,31 +16,32 @@ export class NoteService {
     return this.noteRepository.find();
   }
 
-  async get(id: number): Promise<Note> {
+  async get(uuid: NIL_UUID): Promise<Note> {
     try {
-      const note = await this.noteRepository.findOneOrFail(id);
+      const note = await this.noteRepository.findOneOrFail({
+        uuid,
+      });
       return note;
     } catch (err) {
       throw err;
     }
   }
 
-  create(createNoteDTO: CreateNoteDTO): Promise<Note> {
+  async create(createNoteDTO: CreateNoteDTO): Promise<Note> {
     const newNote = this.noteRepository.create(createNoteDTO);
-    return this.noteRepository.save(newNote);
+    return await this.noteRepository.save(newNote);
   }
 
-  async update(id: number, updateNoteDTO: UpdateNoteDTO): Promise<Note> {
-    const note = await this.get(id);
+  async update(uuid: NIL_UUID, updateNoteDTO: UpdateNoteDTO): Promise<Note> {
+    const note = await this.get(uuid);
     Object.assign(note, updateNoteDTO);
-    return this.noteRepository.save(note);
+    return await this.noteRepository.save(note);
   }
 
-  async delete(id: number): Promise<boolean> {
+  async delete(uuid: NIL_UUID) {
     try {
-      const note = await this.get(id);
-      this.noteRepository.remove(note);
-      return true;
+      const note = await this.get(uuid);
+      await this.noteRepository.remove(note);
     } catch (err) {
       throw err;
     }

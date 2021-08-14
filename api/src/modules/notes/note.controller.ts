@@ -22,9 +22,9 @@ export class NoteController {
     return this.noteService.index();
   }
 
-  @Get(':id')
+  @Get(':uuid')
   get(@Param() params) {
-    return this.noteService.get(params.id);
+    return this.noteService.get(params.uuid);
   }
 
   @Post()
@@ -35,13 +35,13 @@ export class NoteController {
     return this.noteService.create(createNoteDTO);
   }
 
-  @Put(':id')
+  @Put(':uuid')
   update(
     @Param() params,
     @Body(new ValidationPipe({ errorHttpStatusCode: 422 }))
     updateNoteDTO: UpdateNoteDTO,
   ) {
-    return this.noteService.update(params.id, updateNoteDTO);
+    return this.noteService.update(params.uuid, updateNoteDTO);
   }
 
   @Delete(':id')

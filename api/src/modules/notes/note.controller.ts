@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
   Param,
   Post,
   Put,
@@ -44,7 +45,8 @@ export class NoteController {
   }
 
   @Delete(':id')
+  @HttpCode(204)
   delete(@Param() params) {
-    return this.noteService.delete(params.id);
+    this.noteService.delete(params.id);
   }
 }

@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsString } from 'class-validator';
 
-export class CreateUserDTO {
+export class CreateNoteDTO {
   @IsNotEmpty()
   @IsString()
   title: string;

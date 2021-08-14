@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateUserDTO } from './dto/create-users.dto';
-import { UpdateUserDTO } from './dto/update-users.dto';
+import { CreateNoteDTO } from './dto/create-note.dto';
+import { UpdateNoteDTO } from './dto/update-note.dto';
 import { Note } from './note.entity';
 
 @Injectable()
@@ -24,14 +24,14 @@ export class NoteService {
     }
   }
 
-  create(createUserDTO: CreateUserDTO): Promise<Note> {
-    const newNote = this.noteRepository.create(createUserDTO);
+  create(createNoteDTO: CreateNoteDTO): Promise<Note> {
+    const newNote = this.noteRepository.create(createNoteDTO);
     return this.noteRepository.save(newNote);
   }
 
-  async update(id: number, updateUserDTO: UpdateUserDTO): Promise<Note> {
+  async update(id: number, updateNoteDTO: UpdateNoteDTO): Promise<Note> {
     const note = await this.get(id);
-    Object.assign(note, updateUserDTO);
+    Object.assign(note, updateNoteDTO);
     return this.noteRepository.save(note);
   }
 

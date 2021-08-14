@@ -8,8 +8,8 @@ import {
   Put,
   ValidationPipe,
 } from '@nestjs/common';
-import { CreateUserDTO } from './dto/create-users.dto';
-import { UpdateUserDTO } from './dto/update-users.dto';
+import { CreateNoteDTO } from './dto/create-note.dto';
+import { UpdateNoteDTO } from './dto/update-note.dto';
 import { NoteService } from './note.service';
 
 @Controller('notes')
@@ -29,18 +29,18 @@ export class NoteController {
   @Post()
   create(
     @Body(new ValidationPipe({ errorHttpStatusCode: 422 }))
-    createUserDTO: CreateUserDTO,
+    createNoteDTO: CreateNoteDTO,
   ) {
-    return this.noteService.create(createUserDTO);
+    return this.noteService.create(createNoteDTO);
   }
 
   @Put(':id')
   update(
     @Param() params,
     @Body(new ValidationPipe({ errorHttpStatusCode: 422 }))
-    updateUserDTO: UpdateUserDTO,
+    updateNoteDTO: UpdateNoteDTO,
   ) {
-    return this.noteService.update(params.id, updateUserDTO);
+    return this.noteService.update(params.id, updateNoteDTO);
   }
 
   @Delete(':id')

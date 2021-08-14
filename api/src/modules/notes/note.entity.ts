@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import {
   BaseEntity,
   Column,
@@ -11,6 +12,9 @@ import { v4 as uuidV4 } from 'uuid';
 @Entity('notes')
 export class Note extends BaseEntity {
   @PrimaryGeneratedColumn()
+  @Exclude({
+    toPlainOnly: true,
+  })
   id: number;
   @Column('text')
   uuid: string;

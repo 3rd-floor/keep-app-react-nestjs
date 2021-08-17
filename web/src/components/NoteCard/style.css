@@ -1,0 +1,35 @@
+.card-note {
+
+    background-color: var(--fundo-detalhes);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    
+    width: 240px;
+    height: 400px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 4px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card-note-head {
+    font-size: 2em;
+    font-style: bold;
+}
+
+.card-note-body{
+    flex-grow: 1;
+    font-size: 1em;
+}
+
+.card-note-body .card-note-text{
+    text-align: justify;
+}
+
+.card-note-botton {
+    display: flex;
+    flex-direction: column;
+}

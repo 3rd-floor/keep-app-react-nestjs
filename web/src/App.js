@@ -1,8 +1,10 @@
-import Layout from "./layout";
+import Layout from "./layout/index.jsx";
+import "./assets/App.css";
+import "./assets/index.css";
 
 function App() {
   return (
-    <Layout></Layout>
+    <Layout className='conteudo'></Layout>
   );
 }
 

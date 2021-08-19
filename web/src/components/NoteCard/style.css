@@ -15,10 +15,13 @@
     flex-wrap: wrap;
 }
 
+.card-note:hover {
+    background-color: var(--secundaria-ativa);
+}
+
 .card-note-head {
     font-size: 1.5em;
     font-style: bold;
-    
 }
 
 .card-note-body{
@@ -44,7 +47,17 @@
 }
 
 .card-note-botton .card-note-actions button {
+    background: none;
+    cursor: pointer;
+    
     border: none;
     margin-top: 10px;
 }
 
+.card-note-botton .card-note-actions button i:hover {
+    color: red;
+}
+
+.card-note-botton .card-note-actions button i:active {
+    color: yellow;
+}

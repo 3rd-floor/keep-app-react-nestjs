@@ -16,13 +16,15 @@
 }
 
 .card-note-head {
-    font-size: 2em;
+    font-size: 1.5em;
     font-style: bold;
+    
 }
 
 .card-note-body{
     flex-grow: 1;
     font-size: 1em;
+    margin: 10px 0 10px 0;
 }
 
 .card-note-body .card-note-text{
@@ -33,3 +35,16 @@
     display: flex;
     flex-direction: column;
 }
+
+.card-note-botton .card-note-actions {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid var(--secundaria-ativa);
+    margin-top: 10px;
+}
+
+.card-note-botton .card-note-actions button {
+    border: none;
+    margin-top: 10px;
+}
+

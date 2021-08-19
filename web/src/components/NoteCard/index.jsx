@@ -1,11 +1,12 @@
+import MaterialIcon from 'material-icons-react';
 import './style.css';
 
 function NoteCard(props){
     return (
         <div className='card-note'>
-            <header className='card-note-head'>
+            <div className='card-note-head'>
                 <h1>{props.title}</h1>
-            </header>
+            </div>
             <div className='card-note-body'>
                 <p className='card-note-text'>{props.body}</p>
             </div>
@@ -14,8 +15,12 @@ function NoteCard(props){
                     <p>Tags</p>
                 </div>
                 <div className='card-note-actions'>
-                    <button>Editar</button>
-                    <button>Remover</button>
+                    <button>
+                        <MaterialIcon icon='edit' size={20}/>
+                    </button>
+                    <button>
+                        <MaterialIcon icon='delete' size={20}/>
+                    </button>
                 </div>
             </div>
         </div>

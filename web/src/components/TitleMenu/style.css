@@ -1,0 +1,39 @@
+.title-menu {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--fundo-detalhes);
+    border-bottom: 1px solid black;
+}
+
+.search-input i {
+    vertical-align: middle;
+}
+
+.modal-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.modal-container input, .modal-container textarea {
+    margin-bottom: 5px;
+}
+
+.modal-container-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.modal-container-btns button {
+    border-radius: 6px;
+    margin: 2px;
+}
+
+.modal-container-btns button i {
+    margin: 2px;
+    vertical-align: middle;
+}
+

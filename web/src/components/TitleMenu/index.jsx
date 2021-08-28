@@ -1,6 +1,7 @@
 import React from "react";
 import MaterialIcon from "material-icons-react";
 import "./style.css";
+import NoteForm from "../NoteForm";
 
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
@@ -17,7 +18,6 @@ const customStyles = {
   };
 
 function TitleMenu() {
-  let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {
@@ -26,14 +26,14 @@ function TitleMenu() {
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    //subtitle.style.color = "#f00";
   }
 
   function closeModal() {
     setIsOpen(false);
   }
 
-  function createNote() {
+  const createNote = () => {
+    console.log("aqui")
     //Post
     //Exibe erro
     //fechar e reload
@@ -57,25 +57,9 @@ function TitleMenu() {
           style={customStyles}
           contentLabel="Example Modal"
         >
-            <div className="modal-container">
-                <label htmlFor="title">Título</label>
-                <input id='title' type="text" autoComplete="off"/>
-
-                <label htmlFor="body">Nota</label>
-                <textarea name="" id="body" cols="30" rows="10"></textarea>
-                
-                <label htmlFor="tags">Tags</label>
-                <input type="text" id="tags" autoComplete="off" />
-                
-                <div className="modal-container-btns">
-                    <button type="button" onClick={createNote}>
-                        <MaterialIcon icon='cancel' size={20}/>
-                    </button>
-                    <button type="button" onClick={createNote}>
-                        <MaterialIcon icon='save' size={20}/>
-                    </button>
-                </div>
-            </div>
+            <NoteForm
+              sucesso={() => createNote()}
+            ></NoteForm>
         </Modal>
       </div>
     </div>

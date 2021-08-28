@@ -1,22 +1,39 @@
+import React from "react";
+import { useEffect } from "react";
 import NoteCard from "../NoteCard";
 import './style.css';
+const axios = require('axios');
+const api = axios.create({
+    baseURL: 'http://localhost:3333',
+    timeout: 1000,
+  });
 
 function NoteList(){
+
+    const [notes, setNotes] = React.useState([]);
+
+    const onLoad = () => {
+        api.get('/notes')
+            .then((response) => {
+                console.log(response.data)
+                setNotes(response.data)
+            })
+            .catch(() => {
+                console.log('error')
+            })
+    }
+
+    useEffect(onLoad,[])        
+
     return (
         <div className='notes-list'>
-            <NoteCard title='Card 1' body='is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'/>
-            <NoteCard title='Card 1' body='Texto Exemplo'/>
-            <NoteCard title='Card 1' body='Texto Exemplo'/>
-            <NoteCard title='Card 1' body='Texto Exemplo'/>
-            <NoteCard title='Card 1' body='Texto Exemplo'/>
-            <NoteCard title='Card 1' body='Texto Exemplo'/>
-            <NoteCard title='Card 1' body='Texto Exemplo'/>
-            <NoteCard title='Card 1' body='Texto Exemplo'/>
-            <NoteCard title='Card 1' body='Texto Exemplo'/>
-            <NoteCard title='Card 1' body='Texto Exemplo'/>
-            <NoteCard title='Card 1' body='Texto Exemplo'/>
-            <NoteCard title='Card 1' body='Texto Exemplo'/>
-            <NoteCard title='Card 1' body='Texto Exemplo'/>
+            {notes.map((note) => 
+                <NoteCard 
+                    title={note.title} 
+                    body={note.description}
+                />
+
+            )}
         </div>
     );
 }
